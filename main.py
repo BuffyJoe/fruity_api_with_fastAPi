@@ -1,8 +1,17 @@
 from fastapi import FastAPI
 from models import Fruits, updateFruits
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+origins = ["*"]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 fruitsSeen : list[Fruits] = [
     Fruits(
       name= 'Pineapple',
@@ -44,7 +53,7 @@ async def fruitList():
 
 
 
-@app.get("/search/{search_name}")
+@app.get("/{search_name}?")
 async def singleFruit(search_name):
     for fruit in fruitsSeen:
         if fruit.name == search_name:
@@ -52,7 +61,7 @@ async def singleFruit(search_name):
             return fruits
         
 @app.post('/add_fruit/')
-async def q(fruit: Fruits):
+async def addFruit(fruit: Fruits):
     fruitsSeen.append(fruit)
     return fruit
 
