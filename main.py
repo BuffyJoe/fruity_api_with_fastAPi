@@ -13,36 +13,7 @@ app = FastAPI()
 #     allow_headers=["*"],
 # )
 fruitsSeen : list[Fruits] = [
-    Fruits(
-      name= 'Pineapple',
-    day_first_seen= '12th October, 2020',
-condition= Condition.overripe,
-    # location= 'Amawbia'
-    ),
-    Fruits(
-      name='Apple',
-    day_first_seen= '12th January, 2020',
-    condition= Condition.overripe,
-    # location='Okpunno'
-    ),
-    Fruits(
-      name='Strawberry',
-    day_first_seen= '12th November, 2020',
-    condition= Condition.overripe,
-    # location='ifite'
-    ),
-    Fruits(
-      name= 'Mango',
-    day_first_seen='12th August, 2020',
-    condition= Condition.overripe,
-    # location='Ngozika'
-    ),
-    Fruits(
-    name= 'Udala',
-    day_first_seen='12th June, 2020',
-    condition= Condition.overripe,
-    # location='Ifite'
-    ),
+   
 ]
 
 
