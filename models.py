@@ -16,7 +16,7 @@ class Fruits(BaseModel):
     price: Optional[str]
     day_first_seen: str
     condition: Condition
-    location: str
+    # location: str
     image: Optional[str]
 
 
