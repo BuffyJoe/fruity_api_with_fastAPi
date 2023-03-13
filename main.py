@@ -1,47 +1,46 @@
 from fastapi import FastAPI
-from models import Fruits, updateFruits
+from models import Fruits, updateFruits, Condition
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-origins = ["*"]
+# origins = ["*"]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 fruitsSeen : list[Fruits] = [
     Fruits(
       name= 'Pineapple',
     day_first_seen= '12th October, 2020',
-
-    condition='ripe',
+condition= Condition.overripe,
     # location= 'Amawbia'
     ),
     Fruits(
       name='Apple',
     day_first_seen= '12th January, 2020',
-    condition= 'overripe',
+    condition= Condition.overripe,
     # location='Okpunno'
     ),
     Fruits(
       name='Strawberry',
     day_first_seen= '12th November, 2020',
-    condition='ripe',
+    condition= Condition.overripe,
     # location='ifite'
     ),
     Fruits(
       name= 'Mango',
     day_first_seen='12th August, 2020',
-    condition='unripe',
+    condition= Condition.overripe,
     # location='Ngozika'
     ),
     Fruits(
     name= 'Udala',
     day_first_seen='12th June, 2020',
-    condition='ripe',
+    condition= Condition.overripe,
     # location='Ifite'
     ),
 ]
